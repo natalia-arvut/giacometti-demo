@@ -1,0 +1,459 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>Hotel Giacometti — nel cuore della Città Vecchia di Locarno · Vacanze in Ticino</title>
+<meta name="description" content="Hotel Giacometti: piccolo albergo a conduzione famigliare nel cuore della Città Vecchia di Locarno, a pochi passi dalla Piazza Grande. Camere doppie, colazione nel cortile interno, Lago Maggiore e Ticino."/>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..700;1,9..144,400..600&family=Hanken+Grotesk:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<script src="https://cdn.tailwindcss.com"></script>
+<script>
+tailwind.config = {
+  theme: { extend: {
+    colors: {
+      ink:'#221a14', inksoft:'#4d4036', paper:'#f7f1e6', paper2:'#efe5d4',
+      ochre:'#bb7a2c', ochredeep:'#985d1c', magenta:'#b22c69', sage:'#5f6a4c', line:'#e1d4be'
+    },
+    fontFamily: { display:['Fraunces','serif'], body:['"Hanken Grotesk"','sans-serif'] },
+    letterSpacing: { label:'0.22em' }
+  }}
+}
+</script>
+<style>
+  html{scroll-behavior:smooth}
+  body{background:#f7f1e6;color:#221a14;font-family:'Hanken Grotesk',sans-serif}
+  .font-display{font-family:'Fraunces',serif}
+  .label{font-size:.7rem;letter-spacing:.22em;text-transform:uppercase;font-weight:600}
+  /* hero scrim — keeps bougainvillea (top) clear, darkens bottom-left for text */
+  .hero-scrim{background:
+     linear-gradient(180deg, rgba(34,26,20,.28) 0%, rgba(34,26,20,0) 26%, rgba(34,26,20,.18) 55%, rgba(34,26,20,.82) 100%),
+     linear-gradient(90deg, rgba(34,26,20,.62) 0%, rgba(34,26,20,.18) 46%, rgba(34,26,20,0) 72%);}
+  .underline-grow{background-image:linear-gradient(currentColor,currentColor);background-size:0% 1px;background-repeat:no-repeat;background-position:0 100%;transition:background-size .4s ease}
+  .underline-grow:hover{background-size:100% 1px}
+  .reveal{opacity:0;transform:translateY(22px);transition:opacity .9s cubic-bezier(.2,.6,.2,1),transform .9s cubic-bezier(.2,.6,.2,1)}
+  .reveal.in{opacity:1;transform:none}
+  .card-img{transition:transform 1.1s cubic-bezier(.2,.6,.2,1)}
+  .card:hover .card-img{transform:scale(1.06)}
+  .nav-shadow{box-shadow:0 1px 0 rgba(34,26,20,.08),0 10px 30px -18px rgba(34,26,20,.35)}
+  .seal{border:1px solid rgba(187,122,44,.5)}
+  details>summary{list-style:none;cursor:pointer}
+  details>summary::-webkit-details-marker{display:none}
+  @media (prefers-reduced-motion:reduce){.reveal{opacity:1;transform:none;transition:none}.card-img{transition:none}}
+  ::selection{background:#b22c69;color:#fff}
+  input,textarea,select{font-family:inherit}
+  /* headless full-page capture mode (?shot): fixes hero height in px so a tall window doesn't stretch svh, and forces all reveals visible */
+  html.shot #home>div{height:760px!important;min-height:0!important;max-height:none!important}
+  html.shot .reveal{opacity:1!important;transform:none!important}
+</style>
+</head>
+<body class="antialiased">
+<script>if(location.search.indexOf('shot')>-1)document.documentElement.classList.add('shot');</script>
+
+<!-- ░░ TOP UTILITY BAR ░░ -->
+<div class="bg-ink text-paper/85 text-[12.5px]">
+  <div class="max-w-[1240px] mx-auto px-5 h-9 flex items-center justify-between">
+    <a href="tel:0917518782" class="hidden sm:flex items-center gap-2 hover:text-paper transition-colors">
+      <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.91.34 1.85.57 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+      091 751 87 82
+    </a>
+    <p class="hidden md:block text-paper/70 tracking-[0.04em]">Via San Francesco 1 · CH&#8209;6600 Locarno · Ticino</p>
+    <div class="flex items-center gap-1.5 label !text-[11px] tracking-[0.14em]">
+      <a href="#" class="px-1.5 py-0.5 text-paper">IT</a><span class="text-paper/30">/</span>
+      <a href="#" class="px-1.5 py-0.5 text-paper/55 hover:text-paper transition-colors">DE</a><span class="text-paper/30">/</span>
+      <a href="#" class="px-1.5 py-0.5 text-paper/55 hover:text-paper transition-colors">FR</a><span class="text-paper/30">/</span>
+      <a href="#" class="px-1.5 py-0.5 text-paper/55 hover:text-paper transition-colors">EN</a>
+    </div>
+  </div>
+</div>
+
+<!-- ░░ HEADER / NAV ░░ -->
+<header id="hdr" class="sticky top-0 z-50 bg-paper/90 backdrop-blur-md border-b border-line transition-all">
+  <div class="max-w-[1240px] mx-auto px-5 h-[72px] flex items-center justify-between gap-4">
+    <a href="#home" class="flex items-baseline gap-2.5 shrink-0">
+      <span class="font-display text-[26px] leading-none font-semibold tracking-[-0.01em]">Hotel Giacometti</span>
+      <span class="hidden lg:inline label text-ochredeep">Locarno</span>
+    </a>
+    <nav class="hidden xl:flex items-center gap-7 text-[14.5px] font-medium text-inksoft">
+      <a href="#home" class="underline-grow hover:text-ink">Homepage</a>
+      <a href="#camere" class="underline-grow hover:text-ink">Camere e Prezzi</a>
+      <a href="#offerte" class="underline-grow hover:text-ink">Offerte</a>
+      <a href="#galleria" class="underline-grow hover:text-ink">Galleria</a>
+      <a href="#mappa" class="underline-grow hover:text-ink">Mappa</a>
+      <a href="#disponibilita" class="underline-grow hover:text-ink">Disponibilità</a>
+      <a href="#link" class="underline-grow hover:text-ink">Link Amici</a>
+    </nav>
+    <div class="flex items-center gap-3">
+      <a href="#prenota" class="hidden sm:inline-flex items-center gap-2 bg-ink text-paper text-[14px] font-medium px-5 py-2.5 rounded-full hover:bg-ochredeep transition-colors">Domanda di riservazione</a>
+      <button id="burger" aria-label="Menu" class="xl:hidden w-10 h-10 -mr-1 flex flex-col items-center justify-center gap-[5px]">
+        <span class="block w-6 h-[2px] bg-ink transition-all"></span>
+        <span class="block w-6 h-[2px] bg-ink transition-all"></span>
+        <span class="block w-6 h-[2px] bg-ink transition-all"></span>
+      </button>
+    </div>
+  </div>
+  <!-- mobile menu -->
+  <div id="mobile" class="xl:hidden hidden border-t border-line bg-paper">
+    <nav class="max-w-[1240px] mx-auto px-5 py-4 flex flex-col text-[16px] font-medium text-inksoft">
+      <a href="#home" class="py-2.5 border-b border-line/60">Homepage</a>
+      <a href="#prenota" class="py-2.5 border-b border-line/60">Domanda di riservazione</a>
+      <a href="#camere" class="py-2.5 border-b border-line/60">Camere e Prezzi</a>
+      <a href="#mappa" class="py-2.5 border-b border-line/60">Mappa</a>
+      <a href="#offerte" class="py-2.5 border-b border-line/60">Offerte</a>
+      <a href="#galleria" class="py-2.5 border-b border-line/60">Galleria</a>
+      <a href="#disponibilita" class="py-2.5 border-b border-line/60">Disponibilità</a>
+      <a href="#link" class="py-2.5">Link Amici</a>
+    </nav>
+  </div>
+</header>
+
+<!-- ░░ HERO ░░ -->
+<section id="home" class="relative">
+  <div class="relative h-[calc(100svh-72px-36px)] min-h-[520px] max-h-[860px] w-full overflow-hidden">
+    <img src="assets/hero.jpg" alt="Vicolo della Città Vecchia di Locarno con bougainvillea e scorcio sul Lago Maggiore" class="absolute inset-0 w-full h-full object-cover" style="object-position:60% 50%">
+    <div class="absolute inset-0 hero-scrim"></div>
+    <div class="relative z-10 h-full max-w-[1240px] mx-auto px-5 flex flex-col justify-end pb-12 sm:pb-16">
+      <p class="reveal label text-paper/90 mb-4 flex items-center gap-3">
+        <span class="inline-block w-8 h-px bg-ochre"></span>Locarno · Ticino · Svizzera
+      </p>
+      <h1 class="reveal font-display text-paper font-semibold leading-[1.02] tracking-[-0.015em] text-[clamp(2.4rem,7vw,5rem)] max-w-[15ch]">
+        Nel cuore della<br>Città Vecchia<br>di Locarno
+      </h1>
+      <p class="reveal mt-5 text-paper/90 text-[clamp(1.05rem,2.2vw,1.4rem)] font-light max-w-[44ch] leading-relaxed">
+        Un piccolo albergo a conduzione famigliare, a pochi passi dalla&nbsp;Piazza&nbsp;Grande. Un ambiente sereno e famigliare per le vostre vacanze in&nbsp;Ticino.
+      </p>
+      <div class="reveal mt-8 flex flex-wrap items-center gap-3">
+        <a href="#prenota" class="inline-flex items-center gap-2 bg-paper text-ink text-[15px] font-semibold px-7 py-3.5 rounded-full hover:bg-ochre hover:text-paper transition-colors">
+          Domanda di riservazione
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+        </a>
+        <a href="#camere" class="inline-flex items-center gap-2 text-paper border border-paper/40 text-[15px] font-medium px-7 py-3.5 rounded-full hover:bg-paper/10 transition-colors">Camere e Prezzi</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ░░ WELCOME / INTRO ░░ -->
+<section class="bg-paper">
+  <div class="max-w-[1240px] mx-auto px-5 py-20 sm:py-28 grid lg:grid-cols-12 gap-12 lg:gap-16 items-start">
+    <div class="lg:col-span-5 reveal">
+      <p class="label text-ochredeep mb-5">La Famiglia Giacometti vi attende</p>
+      <h2 class="font-display text-[clamp(1.9rem,4vw,3rem)] leading-[1.08] font-medium tracking-[-0.01em]">
+        Un ambiente cordiale e personalizzato
+      </h2>
+      <div class="seal mt-9 rounded-2xl p-6 bg-paper2/60">
+        <p class="font-display italic text-[1.15rem] text-inksoft leading-relaxed">«Il servizio famigliare fornito dall'Albergo saprà avvolgervi in un ambiente cordiale e personalizzato, rendendo le vostre vacanze serene e felici.»</p>
+        <p class="mt-4 label text-ochredeep">Maurizio · Isabelle · Ambra</p>
+      </div>
+    </div>
+    <div class="lg:col-span-7 reveal">
+      <div class="space-y-5 text-[1.075rem] leading-[1.85] text-inksoft">
+        <p><span class="font-display text-ink text-[1.3rem] font-medium">L'</span>Hotel Giacometti si trova in una posizione unica nel cuore della Città Vecchia di Locarno, a pochi passi dalla «Piazza Grande». Esso è vicino a molteplici possibilità storico&#8209;culturali: quali il famoso Rivellino di Leonardo da Vinci situato nel perimetro del Castello Visconteo, la Pinacoteca di Casa Rusca o alle importanti manifestazioni come il Festival Internazionale del Film, oppure Moon and Stars, Luci e ombre, concerti musicali, concorsi sportivi, festa delle camelie, Brocante ecc.</p>
+        <p>È vicino anche a tanti simpatici negozi dove ci si può divertire con lo shopping. Ottimo punto di partenza per molteplici escursioni, sia sul Lago Maggiore, che verso le nostre belle valli: Valle Maggia, Valle Verzasca, Valle Onsernone, oppure salire con la funivia progettata dall'Architetto Mario Botta a Cardada.</p>
+        <p class="text-ink font-medium">Luogo ideale per chi desidera un ambiente sereno e famigliare.</p>
+      </div>
+      <div class="mt-9 grid grid-cols-3 gap-4 sm:gap-6 border-t border-line pt-8">
+        <div><p class="font-display text-[2.1rem] leading-none text-ochredeep">2010</p><p class="mt-2 text-[13px] text-inksoft leading-snug">Hotel aperto<br>il 17.06.2010</p></div>
+        <div><p class="font-display text-[2.1rem] leading-none text-ochredeep">3</p><p class="mt-2 text-[13px] text-inksoft leading-snug">Camere doppie,<br>cura personale</p></div>
+        <div><p class="font-display text-[2.1rem] leading-none text-ochredeep">0&nbsp;min</p><p class="mt-2 text-[13px] text-inksoft leading-snug">A piedi dalla<br>Piazza Grande</p></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ░░ CAMERE E PREZZI ░░ -->
+<section id="camere" class="bg-ink text-paper">
+  <div class="max-w-[1240px] mx-auto px-5 py-20 sm:py-28">
+    <div class="flex flex-col sm:flex-row sm:items-end justify-between gap-6 mb-14 reveal">
+      <div>
+        <p class="label text-ochre mb-4">Camere e Prezzi</p>
+        <h2 class="font-display text-[clamp(2rem,4.5vw,3.4rem)] leading-[1.05] font-medium tracking-[-0.01em] max-w-[16ch]">Tre camere doppie, ognuna con la sua luce</h2>
+      </div>
+      <p class="text-paper/70 max-w-[34ch] text-[15px] leading-relaxed">Le camere hanno gabinetto e doccia privati in camera. Wireless + LAN gratis. Colazione buffet dalle 07:30 alle 09:30.</p>
+    </div>
+
+    <div class="grid md:grid-cols-3 gap-6 reveal">
+      <!-- No.5 -->
+      <article class="card group rounded-2xl overflow-hidden bg-paper/[0.04] border border-paper/10">
+        <div class="relative h-56 overflow-hidden">
+          <img src="assets/room1.jpg" alt="Camera No. 5 doppia con balcone" class="card-img w-full h-full object-cover">
+          <span class="absolute top-4 left-4 label !text-[10px] bg-paper text-ink px-3 py-1 rounded-full">Con balcone</span>
+        </div>
+        <div class="p-6">
+          <div class="flex items-baseline justify-between">
+            <h3 class="font-display text-[1.5rem] font-medium">No. 5 · Doppia</h3>
+          </div>
+          <p class="text-paper/55 text-[14px] mt-1">2 letti 80 × 200</p>
+          <p class="mt-5 text-paper/60 text-[13px] label">da</p>
+          <p class="font-display text-[2rem] leading-none text-ochre">130.<span class="text-[1.1rem] align-top">–*</span> <span class="text-paper/40 text-[1.1rem]">→</span> 175.<span class="text-[1.1rem] align-top">–</span></p>
+        </div>
+      </article>
+      <!-- No.6 -->
+      <article class="card group rounded-2xl overflow-hidden bg-paper/[0.04] border border-paper/10">
+        <div class="relative h-56 overflow-hidden">
+          <img src="assets/room2.jpg" alt="Camera No. 6 doppia" class="card-img w-full h-full object-cover">
+        </div>
+        <div class="p-6">
+          <h3 class="font-display text-[1.5rem] font-medium">No. 6 · Doppia</h3>
+          <p class="text-paper/55 text-[14px] mt-1">1 letto 140 × 200</p>
+          <p class="mt-5 text-paper/60 text-[13px] label">da</p>
+          <p class="font-display text-[2rem] leading-none text-ochre">120.<span class="text-[1.1rem] align-top">–*</span> <span class="text-paper/40 text-[1.1rem]">→</span> 165.<span class="text-[1.1rem] align-top">–</span></p>
+        </div>
+      </article>
+      <!-- No.7 -->
+      <article class="card group rounded-2xl overflow-hidden bg-paper/[0.04] border border-paper/10">
+        <div class="relative h-56 overflow-hidden">
+          <img src="assets/room3.jpg" alt="Camera No. 7 doppia con porta finestra" class="card-img w-full h-full object-cover">
+          <span class="absolute top-4 left-4 label !text-[10px] bg-magenta text-paper px-3 py-1 rounded-full">Porta finestra</span>
+        </div>
+        <div class="p-6">
+          <h3 class="font-display text-[1.5rem] font-medium">No. 7 · Doppia</h3>
+          <p class="text-paper/55 text-[14px] mt-1">Letto 140 × 200</p>
+          <p class="mt-5 text-paper/60 text-[13px] label">da</p>
+          <p class="font-display text-[2rem] leading-none text-ochre">110.<span class="text-[1.1rem] align-top">–*</span> <span class="text-paper/40 text-[1.1rem]">→</span> 155.<span class="text-[1.1rem] align-top">–</span></p>
+        </div>
+      </article>
+    </div>
+
+    <!-- conditions -->
+    <div class="grid lg:grid-cols-2 gap-x-14 gap-y-8 mt-14 reveal">
+      <div class="space-y-4 text-[15px] text-paper/80 leading-relaxed">
+        <p>Il prezzo del pernottamento con una riservazione diretta in albergo include la colazione. La tassa di soggiorno di Frs. 3.30.– a persona per giorno è separata.</p>
+        <p class="text-paper/55 text-[14px]">*I prezzi cambiano secondo Stagione · Festività · Manifestazioni.</p>
+      </div>
+      <ul class="grid sm:grid-cols-2 gap-x-8 gap-y-3 text-[14.5px] text-paper/85">
+        <li class="flex gap-2.5"><span class="text-ochre mt-0.5">—</span>Camere esclusivamente non fumatori</li>
+        <li class="flex gap-2.5"><span class="text-ochre mt-0.5">—</span>Bambini di meno di 10 anni non accettati</li>
+        <li class="flex gap-2.5"><span class="text-ochre mt-0.5">—</span>Animali non accettati</li>
+        <li class="flex gap-2.5"><span class="text-ochre mt-0.5">—</span>Check&#8209;in 12:00 / 18:00 — solo su appuntamento</li>
+        <li class="flex gap-2.5"><span class="text-ochre mt-0.5">—</span>Check&#8209;out entro le 10:00</li>
+        <li class="flex gap-2.5"><span class="text-ochre mt-0.5">—</span>Wireless + LAN gratis in camera</li>
+      </ul>
+    </div>
+    <p class="mt-8 text-paper/45 text-[13px] reveal">Per mancato arrivo o per partenze anticipate vengono fatturati come da riservazione.</p>
+  </div>
+</section>
+
+<!-- ░░ IL CORTILE / COLAZIONE ░░ -->
+<section class="bg-paper">
+  <div class="max-w-[1240px] mx-auto px-5 py-20 sm:py-28 grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
+    <div class="reveal order-2 lg:order-1">
+      <p class="label text-ochredeep mb-5">Il cortile interno</p>
+      <h2 class="font-display text-[clamp(1.9rem,4vw,3rem)] leading-[1.08] font-medium tracking-[-0.01em] max-w-[18ch]">La colazione al buffet, tra le bougainvillee</h2>
+      <p class="mt-6 text-[1.075rem] leading-[1.85] text-inksoft max-w-[46ch]">D'estate vi aspetta un simpatico cortile interno dove trovate la colazione al buffet e potete passare piacevoli momenti di relax.</p>
+      <div class="mt-8 flex flex-wrap gap-x-8 gap-y-3 text-[14.5px] text-inksoft">
+        <span class="flex items-center gap-2"><span class="w-1.5 h-1.5 rounded-full bg-magenta"></span>Colazione 07:30 – 09:30</span>
+        <span class="flex items-center gap-2"><span class="w-1.5 h-1.5 rounded-full bg-magenta"></span>Cortile interno</span>
+        <span class="flex items-center gap-2"><span class="w-1.5 h-1.5 rounded-full bg-magenta"></span>Momenti di relax</span>
+      </div>
+    </div>
+    <div class="reveal order-1 lg:order-2 grid grid-cols-5 grid-rows-2 gap-3 h-[420px]">
+      <div class="card col-span-3 row-span-2 rounded-2xl overflow-hidden"><img src="assets/courtyard.jpg" alt="Cortile interno con tavoli per la colazione" class="card-img w-full h-full object-cover"></div>
+      <div class="card col-span-2 rounded-2xl overflow-hidden"><img src="assets/bougainvillea.jpg" alt="Bougainvillea in fiore" class="card-img w-full h-full object-cover"></div>
+      <div class="card col-span-2 rounded-2xl overflow-hidden"><img src="assets/detail-grille.jpg" alt="Dettaglio in ferro battuto" class="card-img w-full h-full object-cover"></div>
+    </div>
+  </div>
+</section>
+
+<!-- ░░ OFFERTE ░░ -->
+<section id="offerte" class="bg-ochre text-paper">
+  <div class="max-w-[1240px] mx-auto px-5 py-20 sm:py-24 grid lg:grid-cols-12 gap-10 items-center">
+    <div class="lg:col-span-7 reveal">
+      <p class="label text-paper/80 mb-5">Offerte</p>
+      <h2 class="font-display text-[clamp(2rem,4.5vw,3.4rem)] leading-[1.04] font-medium tracking-[-0.01em]">Sconto del 10%<br>a partire dalla 4ª notte</h2>
+      <p class="mt-6 text-paper/85 text-[1.05rem] leading-relaxed max-w-[44ch]">Offerte speciali nei mesi seguenti: Novembre · Dicembre · Gennaio · Febbraio · Marzo.</p>
+    </div>
+    <div class="lg:col-span-5 reveal">
+      <div class="bg-paper text-ink rounded-2xl p-7 sm:p-8">
+        <p class="font-display text-[1.35rem] leading-snug font-medium">Prenotate direttamente con noi</p>
+        <p class="mt-3 text-inksoft text-[15px] leading-relaxed">Vi ricordiamo che le riservazioni effettuate con Booking.com comportano delle spese del 12%. Grazie di effettuare riservazioni direttamente con noi.</p>
+        <a href="#prenota" class="mt-6 inline-flex items-center gap-2 bg-ink text-paper text-[14.5px] font-medium px-6 py-3 rounded-full hover:bg-ochredeep transition-colors">Domanda di riservazione
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ░░ GALLERIA ░░ -->
+<section id="galleria" class="bg-paper">
+  <div class="max-w-[1240px] mx-auto px-5 py-20 sm:py-28">
+    <div class="mb-12 reveal">
+      <p class="label text-ochredeep mb-4">Galleria</p>
+      <h2 class="font-display text-[clamp(2rem,4.5vw,3.4rem)] leading-[1.05] font-medium tracking-[-0.01em] max-w-[20ch]">Locarno, il lago e le nostre valli</h2>
+    </div>
+    <div class="grid grid-cols-2 md:grid-cols-4 gap-3 sm:gap-4 reveal">
+      <figure class="card relative rounded-2xl overflow-hidden aspect-[3/4] row-span-2 md:row-span-1">
+        <img src="assets/lago.jpg" alt="Lungo il Lago Maggiore" class="card-img w-full h-full object-cover">
+        <figcaption class="absolute bottom-0 inset-x-0 p-4 bg-gradient-to-t from-ink/80 to-transparent text-paper font-display text-[1.05rem]">Lungo il Lago Maggiore</figcaption>
+      </figure>
+      <figure class="card relative rounded-2xl overflow-hidden aspect-square">
+        <img src="assets/cittadella.jpg" alt="Cittadella" class="card-img w-full h-full object-cover">
+        <figcaption class="absolute bottom-0 inset-x-0 p-4 bg-gradient-to-t from-ink/80 to-transparent text-paper font-display text-[1.05rem]">Cittadella</figcaption>
+      </figure>
+      <figure class="card relative rounded-2xl overflow-hidden aspect-square">
+        <img src="assets/castello.jpg" alt="Castello Visconteo" class="card-img w-full h-full object-cover">
+        <figcaption class="absolute bottom-0 inset-x-0 p-4 bg-gradient-to-t from-ink/80 to-transparent text-paper font-display text-[1.05rem]">Castello</figcaption>
+      </figure>
+      <figure class="card relative rounded-2xl overflow-hidden aspect-square">
+        <img src="assets/hall.jpg" alt="Immagini dell'albergo" class="card-img w-full h-full object-cover">
+        <figcaption class="absolute bottom-0 inset-x-0 p-4 bg-gradient-to-t from-ink/80 to-transparent text-paper font-display text-[1.05rem]">Immagini Albergo</figcaption>
+      </figure>
+      <figure class="card relative rounded-2xl overflow-hidden aspect-square">
+        <img src="assets/delta.jpg" alt="Delta e Lago" class="card-img w-full h-full object-cover">
+        <figcaption class="absolute bottom-0 inset-x-0 p-4 bg-gradient-to-t from-ink/80 to-transparent text-paper font-display text-[1.05rem]">Delta e Lago</figcaption>
+      </figure>
+      <figure class="card relative rounded-2xl overflow-hidden aspect-[3/4]">
+        <img src="assets/mercato.jpg" alt="Mercato al Giovedì" class="card-img w-full h-full object-cover">
+        <figcaption class="absolute bottom-0 inset-x-0 p-4 bg-gradient-to-t from-ink/80 to-transparent text-paper font-display text-[1.05rem]">Mercato al Giovedì</figcaption>
+      </figure>
+    </div>
+  </div>
+</section>
+
+<!-- ░░ MAPPA / POSIZIONE ░░ -->
+<section id="mappa" class="bg-paper2/50 border-y border-line">
+  <div class="max-w-[1240px] mx-auto px-5 py-20 sm:py-24 grid lg:grid-cols-2 gap-12 items-center">
+    <div class="reveal">
+      <p class="label text-ochredeep mb-5">Mappa · Posizione</p>
+      <h2 class="font-display text-[clamp(1.9rem,4vw,3rem)] leading-[1.08] font-medium tracking-[-0.01em] max-w-[16ch]">A pochi passi da tutto</h2>
+      <p class="mt-6 text-[1.05rem] leading-[1.8] text-inksoft max-w-[44ch]">Nel cuore della Città Vecchia, l'Hotel Giacometti è il punto di partenza ideale per scoprire Locarno, il Lago Maggiore e le valli del Ticino.</p>
+      <dl class="mt-8 space-y-3 text-[15px]">
+        <div class="flex items-start gap-3"><span class="text-ochre font-display text-[1.05rem] mt-0.5">·</span><dt class="text-ink font-medium w-44">Piazza Grande</dt><dd class="text-inksoft">a pochi passi</dd></div>
+        <div class="flex items-start gap-3"><span class="text-ochre font-display text-[1.05rem] mt-0.5">·</span><dt class="text-ink font-medium w-44">Rivellino di Leonardo</dt><dd class="text-inksoft">Castello Visconteo</dd></div>
+        <div class="flex items-start gap-3"><span class="text-ochre font-display text-[1.05rem] mt-0.5">·</span><dt class="text-ink font-medium w-44">Funivia di Cardada</dt><dd class="text-inksoft">arch. Mario Botta</dd></div>
+        <div class="flex items-start gap-3"><span class="text-ochre font-display text-[1.05rem] mt-0.5">·</span><dt class="text-ink font-medium w-44">Lago Maggiore</dt><dd class="text-inksoft">escursioni e battelli</dd></div>
+      </dl>
+      <p class="mt-8 label text-inksoft">Via San Francesco 1 · CH&#8209;6600 Locarno</p>
+    </div>
+    <div class="reveal rounded-2xl overflow-hidden border border-line shadow-[0_30px_60px_-30px_rgba(34,26,20,.5)]">
+      <iframe title="Mappa Hotel Giacometti, Locarno" class="w-full h-[420px]" frameborder="0" loading="lazy" referrerpolicy="no-referrer-when-downgrade"
+        src="https://www.google.com/maps?q=Via%20San%20Francesco%201,%206600%20Locarno,%20Svizzera&z=16&output=embed"></iframe>
+    </div>
+  </div>
+</section>
+
+<!-- ░░ DISPONIBILITÀ + DOMANDA DI RISERVAZIONE ░░ -->
+<section id="disponibilita" class="bg-ink text-paper">
+  <div class="max-w-[1240px] mx-auto px-5 py-20 sm:py-28">
+    <div class="grid lg:grid-cols-12 gap-12 lg:gap-16">
+      <div class="lg:col-span-5 reveal">
+        <p class="label text-ochre mb-5">Disponibilità</p>
+        <h2 id="prenota" class="font-display text-[clamp(2rem,4.5vw,3.4rem)] leading-[1.05] font-medium tracking-[-0.01em] max-w-[15ch]">Domanda di riservazione</h2>
+        <p class="mt-6 text-paper/75 text-[1.05rem] leading-relaxed max-w-[40ch]">Verificate la disponibilità e inviateci la vostra richiesta. Vi risponderemo personalmente.</p>
+        <div class="mt-9 space-y-4 text-[15px]">
+          <a href="tel:0917518782" class="flex items-center gap-3 text-paper/90 hover:text-paper transition-colors">
+            <span class="w-9 h-9 rounded-full seal grid place-items-center"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.91.34 1.85.57 2.81.7A2 2 0 0 1 22 16.92z"/></svg></span>
+            091 751 87 82</a>
+          <a href="mailto:info@hotel-giacometti.ch" class="flex items-center gap-3 text-paper/90 hover:text-paper transition-colors">
+            <span class="w-9 h-9 rounded-full seal grid place-items-center"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m2 7 10 6 10-6"/></svg></span>
+            info@hotel-giacometti.ch</a>
+        </div>
+      </div>
+
+      <div class="lg:col-span-7 reveal">
+        <form onsubmit="return false" class="bg-paper text-ink rounded-2xl p-6 sm:p-8 grid sm:grid-cols-2 gap-x-5 gap-y-4">
+          <div class="sm:col-span-2 grid grid-cols-2 gap-5">
+            <label class="block"><span class="label text-inksoft">Data Arrivo</span><input type="date" class="mt-1.5 w-full bg-paper2/50 border border-line rounded-lg px-3 py-2.5 text-[15px] focus:outline-none focus:border-ochre"></label>
+            <label class="block"><span class="label text-inksoft">Data Partenza</span><input type="date" class="mt-1.5 w-full bg-paper2/50 border border-line rounded-lg px-3 py-2.5 text-[15px] focus:outline-none focus:border-ochre"></label>
+          </div>
+          <label class="block"><span class="label text-inksoft">Adulti</span>
+            <select class="mt-1.5 w-full bg-paper2/50 border border-line rounded-lg px-3 py-2.5 text-[15px] focus:outline-none focus:border-ochre"><option>1</option><option selected>2</option><option>3</option><option>4</option></select></label>
+          <label class="block"><span class="label text-inksoft">Bambini</span>
+            <select class="mt-1.5 w-full bg-paper2/50 border border-line rounded-lg px-3 py-2.5 text-[15px] focus:outline-none focus:border-ochre"><option selected>0</option><option>1</option><option>2</option></select></label>
+          <label class="block"><span class="label text-inksoft">Nome</span><input type="text" class="mt-1.5 w-full bg-paper2/50 border border-line rounded-lg px-3 py-2.5 text-[15px] focus:outline-none focus:border-ochre"></label>
+          <label class="block"><span class="label text-inksoft">Cognome</span><input type="text" class="mt-1.5 w-full bg-paper2/50 border border-line rounded-lg px-3 py-2.5 text-[15px] focus:outline-none focus:border-ochre"></label>
+          <label class="block"><span class="label text-inksoft">Telefono</span><input type="tel" class="mt-1.5 w-full bg-paper2/50 border border-line rounded-lg px-3 py-2.5 text-[15px] focus:outline-none focus:border-ochre"></label>
+          <label class="block"><span class="label text-inksoft">Email</span><input type="email" class="mt-1.5 w-full bg-paper2/50 border border-line rounded-lg px-3 py-2.5 text-[15px] focus:outline-none focus:border-ochre"></label>
+          <label class="block sm:col-span-2"><span class="label text-inksoft">Osservazioni</span><textarea rows="3" class="mt-1.5 w-full bg-paper2/50 border border-line rounded-lg px-3 py-2.5 text-[15px] focus:outline-none focus:border-ochre"></textarea></label>
+          <div class="sm:col-span-2 flex flex-wrap items-center justify-between gap-4 mt-1">
+            <p class="text-inksoft text-[13px] max-w-[34ch]">Riservazione diretta — colazione inclusa, senza spese di intermediazione.</p>
+            <button class="inline-flex items-center gap-2 bg-ink text-paper text-[15px] font-semibold px-7 py-3 rounded-full hover:bg-ochredeep transition-colors">Prenota
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ░░ LINK AMICI ░░ -->
+<section id="link" class="bg-paper">
+  <div class="max-w-[1240px] mx-auto px-5 py-20 sm:py-24">
+    <div class="mb-12 reveal">
+      <p class="label text-ochredeep mb-4">Link Amici</p>
+      <h2 class="font-display text-[clamp(1.9rem,4vw,3rem)] leading-[1.08] font-medium tracking-[-0.01em] max-w-[20ch]">I nostri amici e indirizzi consigliati</h2>
+    </div>
+    <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-x-8 gap-y-7 reveal">
+      <a href="http://www.locarno.ch/" target="_blank" rel="noopener" class="group block border-t border-line pt-4"><h3 class="font-display text-[1.15rem] font-medium group-hover:text-ochredeep transition-colors">Città di Locarno</h3><p class="text-inksoft text-[14px] mt-1">Informazioni sulla nostra bella Locarno</p></a>
+      <a href="http://procittavecchia.ch/index.php?lang=it" target="_blank" rel="noopener" class="group block border-t border-line pt-4"><h3 class="font-display text-[1.15rem] font-medium group-hover:text-ochredeep transition-colors">Pro Città Vecchia di Locarno</h3><p class="text-inksoft text-[14px] mt-1">Scoprite la Città Vecchia</p></a>
+      <a href="http://www.ticino-tourism.ch/" target="_blank" rel="noopener" class="group block border-t border-line pt-4"><h3 class="font-display text-[1.15rem] font-medium group-hover:text-ochredeep transition-colors">Ticino Turismo</h3><p class="text-inksoft text-[14px] mt-1">Il Ticino da vicino</p></a>
+      <a href="http://www.maggiore.ch/" target="_blank" rel="noopener" class="group block border-t border-line pt-4"><h3 class="font-display text-[1.15rem] font-medium group-hover:text-ochredeep transition-colors">Ente turistico Lago Maggiore</h3><p class="text-inksoft text-[14px] mt-1">Informazioni turistiche</p></a>
+      <a href="http://www.pardo.ch/" target="_blank" rel="noopener" class="group block border-t border-line pt-4"><h3 class="font-display text-[1.15rem] font-medium group-hover:text-ochredeep transition-colors">Festival Internazionale del Film</h3><p class="text-inksoft text-[14px] mt-1">A chi il Pardo d'oro quest'anno!</p></a>
+      <a href="http://www.moonandstarslocarno.ch/" target="_blank" rel="noopener" class="group block border-t border-line pt-4"><h3 class="font-display text-[1.15rem] font-medium group-hover:text-ochredeep transition-colors">Moon and Stars Locarno</h3><p class="text-inksoft text-[14px] mt-1">Stelle in piazza</p></a>
+      <a href="http://it-it.facebook.com/pages/Osteria-Borghese/143843932327316" target="_blank" rel="noopener" class="group block border-t border-line pt-4"><h3 class="font-display text-[1.15rem] font-medium group-hover:text-ochredeep transition-colors">Osteria Borghese</h3><p class="text-inksoft text-[14px] mt-1">Ottima cucina e ambiente speciale</p></a>
+      <a href="http://stallone.ch/wp/" target="_blank" rel="noopener" class="group block border-t border-line pt-4"><h3 class="font-display text-[1.15rem] font-medium group-hover:text-ochredeep transition-colors">Capanna Lo Stallone</h3><p class="text-inksoft text-[14px] mt-1">Per una giornata indimenticabile</p></a>
+      <a href="http://www.ohdeco.ch" target="_blank" rel="noopener" class="group block border-t border-line pt-4"><h3 class="font-display text-[1.15rem] font-medium group-hover:text-ochredeep transition-colors">oh!deco</h3><p class="text-inksoft text-[14px] mt-1">Bellissimi oggetti e molta simpatia</p></a>
+      <a href="http://www.zoltan-locarno.ch" target="_blank" rel="noopener" class="group block border-t border-line pt-4"><h3 class="font-display text-[1.15rem] font-medium group-hover:text-ochredeep transition-colors">Zoltan Gioielli</h3><p class="text-inksoft text-[14px] mt-1">Creatore di gioielli bellissimi</p></a>
+      <a href="http://www.cardada.ch/" target="_blank" rel="noopener" class="group block border-t border-line pt-4"><h3 class="font-display text-[1.15rem] font-medium group-hover:text-ochredeep transition-colors">Cardada</h3><p class="text-inksoft text-[14px] mt-1">Si tocca il cielo con un dito</p></a>
+      <a href="http://www.algrottcafe.ch" target="_blank" rel="noopener" class="group block border-t border-line pt-4"><h3 class="font-display text-[1.15rem] font-medium group-hover:text-ochredeep transition-colors">Al Grott Café</h3><p class="text-inksoft text-[14px] mt-1">Bellissimo grotto a due passi</p></a>
+      <a href="http://www.disalvobags.ch/" target="_blank" rel="noopener" class="group block border-t border-line pt-4"><h3 class="font-display text-[1.15rem] font-medium group-hover:text-ochredeep transition-colors">Boutique Di Salvo</h3><p class="text-inksoft text-[14px] mt-1">Bellissima scelta di pelletteria</p></a>
+      <a href="https://sites.google.com/site/uomodario/" target="_blank" rel="noopener" class="group block border-t border-line pt-4"><h3 class="font-display text-[1.15rem] font-medium group-hover:text-ochredeep transition-colors">Boutique Uomoggetto</h3><p class="text-inksoft text-[14px] mt-1">Ottima scelta, qualità e simpatia</p></a>
+      <a href="http://www.bartolomeo.ch" target="_blank" rel="noopener" class="group block border-t border-line pt-4"><h3 class="font-display text-[1.15rem] font-medium group-hover:text-ochredeep transition-colors">Caffè Bartolomeo</h3><p class="text-inksoft text-[14px] mt-1">Ottimo locale per ristoro e aperitivi</p></a>
+      <a href="http://www.computer-planet.ch" target="_blank" rel="noopener" class="group block border-t border-line pt-4"><h3 class="font-display text-[1.15rem] font-medium group-hover:text-ochredeep transition-colors">Computerweb Planet</h3><p class="text-inksoft text-[14px] mt-1">Con professionalità e gentilezza</p></a>
+    </div>
+  </div>
+</section>
+
+<!-- ░░ FOOTER ░░ -->
+<footer class="bg-ink text-paper/80">
+  <div class="max-w-[1240px] mx-auto px-5 py-16 grid md:grid-cols-3 gap-10">
+    <div>
+      <p class="font-display text-[1.6rem] text-paper font-semibold">Hotel Giacometti</p>
+      <p class="mt-3 text-[14px] leading-relaxed text-paper/65 max-w-[30ch]">Un piccolo albergo a conduzione famigliare nel cuore della Città Vecchia di Locarno. La Famiglia Giacometti vi attende con grande piacere.</p>
+    </div>
+    <div class="text-[14px] leading-relaxed">
+      <p class="label text-ochre mb-3">Contatto</p>
+      <p class="text-paper/85">Famiglia Giacometti</p>
+      <p class="text-paper/65">Via San Francesco 1</p>
+      <p class="text-paper/65">CH&#8209;6600 Locarno · Ticino</p>
+      <p class="mt-3"><a href="tel:0917518782" class="text-paper/85 hover:text-paper transition-colors">Tel. 091 751 87 82</a></p>
+      <p><a href="mailto:info@hotel-giacometti.ch" class="text-paper/85 hover:text-paper transition-colors underline-grow">info@hotel-giacometti.ch</a></p>
+    </div>
+    <div class="text-[14px]">
+      <p class="label text-ochre mb-3">Lingua</p>
+      <div class="flex gap-3 text-paper/70">
+        <a href="#" class="text-paper">Italiano</a><span>·</span><a href="#" class="hover:text-paper transition-colors">Deutsch</a><span>·</span><a href="#" class="hover:text-paper transition-colors">Français</a><span>·</span><a href="#" class="hover:text-paper transition-colors">English</a>
+      </div>
+      <a href="#prenota" class="mt-6 inline-flex items-center gap-2 bg-paper text-ink text-[14px] font-medium px-5 py-2.5 rounded-full hover:bg-ochre hover:text-paper transition-colors">Domanda di riservazione</a>
+    </div>
+  </div>
+  <div class="border-t border-paper/10">
+    <div class="max-w-[1240px] mx-auto px-5 py-5 flex flex-col sm:flex-row items-center justify-between gap-2 text-[12.5px] text-paper/45">
+      <p>© 2010 Hotel Giacometti · CH&#8209;6600 Locarno · Tel. 091 751 87 82</p>
+      <p>Concept &amp; redesign · N design</p>
+    </div>
+  </div>
+</footer>
+
+<script>
+  // sticky header subtle shrink
+  const hdr=document.getElementById('hdr');
+  addEventListener('scroll',()=>{hdr.classList.toggle('nav-shadow',scrollY>10)});
+  // mobile menu
+  const burger=document.getElementById('burger'),mob=document.getElementById('mobile');
+  burger.addEventListener('click',()=>mob.classList.toggle('hidden'));
+  mob.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>mob.classList.add('hidden')));
+  // reveal on scroll (with robust fallbacks so content NEVER stays hidden)
+  const reveals=[...document.querySelectorAll('.reveal')];
+  const show=el=>el.classList.add('in');
+  const inView=el=>{const r=el.getBoundingClientRect();return r.top<innerHeight*0.92&&r.bottom>0};
+  const io=new IntersectionObserver((es)=>{es.forEach(e=>{if(e.isIntersecting){show(e.target);io.unobserve(e.target)}})},{threshold:0.12,rootMargin:'0px 0px -8% 0px'});
+  reveals.forEach((el,i)=>{el.style.transitionDelay=(Math.min(i%4,3)*0.08)+'s';io.observe(el)});
+  // immediately reveal anything already in the viewport (e.g. hero) so it can't flash empty
+  requestAnimationFrame(()=>reveals.forEach(el=>{if(inView(el))show(el)}));
+  // last-resort failsafe: after 1.2s, reveal everything regardless of IO
+  setTimeout(()=>reveals.forEach(show),1200);
+</script>
+</body>
+</html>
